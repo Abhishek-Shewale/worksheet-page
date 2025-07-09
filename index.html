@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Worksheets - TheStudentAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="worksheets.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="text-black">
+      <div class="container mx-auto px-4 py-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Math Worksheets</h1>
+          <p class="text-xl mb-6">
+            Free printable math worksheets for grades 4-12
+          </p>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-8"
+          >
+            <div class="text-center">
+              <div class="text-3xl font-bold">1,000+</div>
+              <div class="text-gray-500">Worksheets</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold">4-12</div>
+              <div class="text-gray-500">Grade Levels</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold">100%</div>
+              <div class="text-gray-500">Free</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <section class="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div class="container mx-auto px-4 py-6">
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-4"
+        >
+        <div class="flex flex-wrap justify-center gap-6">
+          <div class="category-card active" data-category="math" onclick="switchCategory('math')">
+            <div class="category-icon">🔢</div>
+            <div class="category-name">Math</div>
+          </div>
+          
+          <div class="category-card" data-category="algebra" onclick="switchCategory('algebra')">
+            <div class="category-icon">📐</div>
+            <div class="category-name">Algebra</div>
+          </div>
+          
+          <div class="category-card" data-category="geometry" onclick="switchCategory('geometry')">
+            <div class="category-icon">📏</div>
+            <div class="category-name">Geometry</div>
+          </div>
+          
+          <div class="category-card" data-category="trigonometry" onclick="switchCategory('trigonometry')">
+            <div class="category-icon">📊</div>
+            <div class="category-name">Trigonometry</div>
+          </div>
+          
+          <div class="category-card" data-category="statistics" onclick="switchCategory('statistics')">
+            <div class="category-icon">📈</div>
+            <div class="category-name">Statistics</div>
+          </div>
+          
+          <div class="category-card" data-category="calculus" onclick="switchCategory('calculus')">
+            <div class="category-icon">∫</div>
+            <div class="category-name">Calculus</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <!-- Dynamic Category Section -->
+      <section class="mb-12" id="category-section">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-2" id="category-title">
+            <span class="text-orange-500">🔥</span> Most Popular Math Worksheets
+            this Week
+          </h2>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6"
+          id="worksheets-container"
+        >
+          <!-- Worksheets will be dynamically loaded here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for Worksheet Preview -->
+    <div
+      id="worksheetModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+    >
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        >
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-2xl font-bold text-gray-800" id="modalTitle">
+                Worksheet Preview
+              </h2>
+              <button
+                onclick="closeModal()"
+                class="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div class="mb-4 flex flex-wrap gap-2">
+              <button
+                onclick="generateWorksheet()"
+                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Generate New
+              </button>
+              <button
+                onclick="printWorksheet()"
+                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Print Worksheet
+              </button>
+              <button
+                onclick="showAnswerKey()"
+                class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                Show Answers
+              </button>
+            </div>
+
+            <div
+              id="worksheetContent"
+              class="bg-gray-50 p-6 rounded-lg min-h-[400px]"
+            >
+              <!-- Worksheet content will be generated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="worksheets.js"></script>
+  </body>
+</html>
