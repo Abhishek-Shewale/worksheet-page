@@ -9,74 +9,66 @@ const worksheetData = {
     {
       id: 'multiplication-2digit',
       title: 'Multiplying 2-Digit by 2-Digit Numbers',
-      description: 'Practice multiplication with 2-digit numbers',
+      description: 'Practice multiplication with 2-digit numbers (25 problems)',
       grade: '4-5',
       difficulty: 'medium',
-      problems: 25,
-      views: 2639
+    
     },
     {
       id: 'addition-2digit',
       title: '2-Digit Plus 2-Digit Addition',
-      description: 'Addition with some regrouping',
+      description: 'Addition with some regrouping (25 problems)',
       grade: '4-5',
       difficulty: 'easy',
-      problems: 25,
-      views: 2677
+     
     },
     {
       id: 'addition-single',
       title: '100 Single-Digit Addition Questions',
-      description: 'Quick addition practice',
-      grade: '3-4',
+      description: 'Quick addition practice (100 problems)',
+      grade: '4-5',
       difficulty: 'easy',
-      problems: 100,
-      views: 2212
+     
     },
     {
       id: 'addition-3digit',
       title: '3-Digit Plus 3-Digit Addition',
-      description: 'Addition with regrouping',
+      description: 'Addition with regrouping (25 problems)',
       grade: '4-5',
       difficulty: 'medium',
-      problems: 25,
-      views: 2014
+     
     },
     {
       id: 'multiplication-facts',
       title: 'Multiplication Facts to 100',
-      description: 'Basic multiplication tables',
-      grade: '3-5',
+      description: 'Basic multiplication tables (100 problems)',
+      grade: '4-5',
       difficulty: 'easy',
-      problems: 100,
-      views: 1821
+     
     },
     {
       id: 'division-basic',
       title: 'Basic Division Facts',
-      description: 'Division with single digits',
-      grade: '3-4',
+      description: 'Division with single digits (50 problems)',
+      grade: '5-6',
       difficulty: 'easy',
-      problems: 50,
-      views: 1654
+     
     },
     {
       id: 'fractions-basic',
       title: 'Introduction to Fractions',
-      description: 'Basic fraction concepts',
+      description: 'Basic fraction concepts (20 problems)',
       grade: '4-5',
       difficulty: 'medium',
-      problems: 20,
-      views: 1432
+     
     },
     {
       id: 'decimals-basic',
       title: 'Decimal Operations',
-      description: 'Addition and subtraction with decimals',
+      description: 'Addition and subtraction with decimals (25 problems)',
       grade: '5-6',
       difficulty: 'medium',
-      problems: 25,
-      views: 1298
+     
     }
   ],
   
@@ -84,56 +76,50 @@ const worksheetData = {
     {
       id: 'linear-equations',
       title: 'Solving Linear Equations',
-      description: 'Basic linear equations with one variable',
+      description: 'Basic linear equations with one variable (15 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 15,
-      views: 940
+     
     },
     {
       id: 'translating-phrases',
       title: 'Translating Algebraic Phrases',
-      description: 'Converting words to algebraic expressions',
+      description: 'Converting words to algebraic expressions (20 problems)',
       grade: '7-8',
       difficulty: 'easy',
-      problems: 20,
-      views: 747
+     
     },
     {
       id: 'distributive-property',
       title: 'Distributive Property',
-      description: 'Expanding expressions using distributive property',
+      description: 'Expanding expressions using distributive property (20 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 20,
-      views: 490
+     
     },
     {
       id: 'combining-like-terms',
       title: 'Combining Like Terms',
-      description: 'Simplifying algebraic expressions',
+      description: 'Simplifying algebraic expressions (18 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 18,
-      views: 432
+     
     },
     {
       id: 'quadratic-equations',
       title: 'Quadratic Equations',
-      description: 'Solving quadratic equations by factoring',
+      description: 'Solving quadratic equations by factoring (12 problems)',
       grade: '9-10',
       difficulty: 'hard',
-      problems: 12,
-      views: 386
+     
     },
     {
       id: 'systems-equations',
       title: 'Systems of Equations',
-      description: 'Solving systems using substitution',
+      description: 'Solving systems using substitution (10 problems)',
       grade: '9-10',
       difficulty: 'hard',
-      problems: 10,
-      views: 315
+     
     }
   ],
   
@@ -141,47 +127,42 @@ const worksheetData = {
     {
       id: 'pythagorean-theorem',
       title: 'Pythagorean Theorem',
-      description: 'Finding missing sides of right triangles',
+      description: 'Finding missing sides of right triangles (15 problems)',
       grade: '8-9',
       difficulty: 'medium',
-      problems: 15,
-      views: 285
+     
     },
     {
       id: 'area-perimeter',
       title: 'Area and Perimeter',
-      description: 'Basic shapes area and perimeter',
+      description: 'Basic shapes area and perimeter (20 problems)',
       grade: '6-7',
       difficulty: 'easy',
-      problems: 20,
-      views: 542
+     
     },
     {
       id: 'coordinate-geometry',
       title: 'Coordinate Geometry',
-      description: 'Distance and midpoint formulas',
+      description: 'Distance and midpoint formulas (12 problems)',
       grade: '8-9',
       difficulty: 'medium',
-      problems: 12,
-      views: 398
+     
     },
     {
       id: 'angles-triangles',
       title: 'Angles in Triangles',
-      description: 'Finding missing angles',
+      description: 'Finding missing angles (15 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 15,
-      views: 321
+     
     },
     {
       id: 'circle-geometry',
       title: 'Circle Geometry',
-      description: 'Circumference and area of circles',
+      description: 'Circumference and area of circles (18 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 18,
-      views: 287
+     
     }
   ],
   
@@ -189,38 +170,34 @@ const worksheetData = {
     {
       id: 'basic-trig-ratios',
       title: 'Basic Trigonometric Ratios',
-      description: 'Sin, cos, tan for special angles',
+      description: 'Sin, cos, tan for special angles (15 problems)',
       grade: '9-10',
       difficulty: 'medium',
-      problems: 15,
-      views: 234
+     
     },
     {
       id: 'trig-identities',
       title: 'Trigonometric Identities',
-      description: 'Basic trig identities and proofs',
+      description: 'Basic trig identities and proofs (12 problems)',
       grade: '10-11',
       difficulty: 'hard',
-      problems: 12,
-      views: 198
+     
     },
     {
       id: 'solving-triangles',
       title: 'Solving Triangles',
-      description: 'Using sine and cosine rules',
+      description: 'Using sine and cosine rules (10 problems)',
       grade: '10-11',
       difficulty: 'hard',
-      problems: 10,
-      views: 176
+     
     },
     {
       id: 'unit-circle',
       title: 'Unit Circle',
-      description: 'Angles and coordinates on unit circle',
+      description: 'Angles and coordinates on unit circle (20 problems)',
       grade: '10-11',
       difficulty: 'hard',
-      problems: 20,
-      views: 156
+     
     }
   ],
   
@@ -228,38 +205,34 @@ const worksheetData = {
     {
       id: 'mean-median-mode',
       title: 'Mean, Median, Mode',
-      description: 'Measures of central tendency',
+      description: 'Measures of central tendency (15 problems)',
       grade: '6-7',
       difficulty: 'easy',
-      problems: 15,
-      views: 412
+     
     },
     {
       id: 'probability-basic',
       title: 'Basic Probability',
-      description: 'Simple probability calculations',
+      description: 'Simple probability calculations (18 problems)',
       grade: '7-8',
       difficulty: 'medium',
-      problems: 18,
-      views: 356
+     
     },
     {
       id: 'data-interpretation',
       title: 'Data Interpretation',
-      description: 'Reading charts and graphs',
+      description: 'Reading charts and graphs (12 problems)',
       grade: '6-8',
       difficulty: 'medium',
-      problems: 12,
-      views: 298
+     
     },
     {
       id: 'standard-deviation',
       title: 'Standard Deviation',
-      description: 'Calculating standard deviation',
+      description: 'Calculating standard deviation (10 problems)',
       grade: '9-10',
       difficulty: 'hard',
-      problems: 10,
-      views: 187
+     
     }
   ],
   
@@ -267,38 +240,34 @@ const worksheetData = {
     {
       id: 'derivatives-basic',
       title: 'Basic Derivatives',
-      description: 'Power rule and basic derivatives',
+      description: 'Power rule and basic derivatives (15 problems)',
       grade: '11-12',
       difficulty: 'hard',
-      problems: 15,
-      views: 167
+     
     },
     {
       id: 'limits',
       title: 'Limits',
-      description: 'Finding limits of functions',
+      description: 'Finding limits of functions (12 problems)',
       grade: '11-12',
       difficulty: 'hard',
-      problems: 12,
-      views: 143
+     
     },
     {
       id: 'chain-rule',
       title: 'Chain Rule',
-      description: 'Derivatives using chain rule',
+      description: 'Derivatives using chain rule (10 problems)',
       grade: '11-12',
       difficulty: 'hard',
-      problems: 10,
-      views: 124
+     
     },
     {
       id: 'integration-basic',
       title: 'Basic Integration',
-      description: 'Fundamental integration techniques',
+      description: 'Fundamental integration techniques (12 problems)',
       grade: '11-12',
       difficulty: 'hard',
-      problems: 12,
-      views: 108
+     
     }
   ]
 };
@@ -399,10 +368,7 @@ function createWorksheetCard(worksheet) {
     <h3>${worksheet.title}</h3>
     <p>${worksheet.description}</p>
     
-    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
-      <span>📝 ${worksheet.problems} problems</span>
-      <span class="text-red-600 font-medium">(${worksheet.views} views this week)</span>
-    </div>
+
   `;
   
   return card;
@@ -411,22 +377,81 @@ function createWorksheetCard(worksheet) {
 // Get preview content for worksheet
 function getPreviewContent(worksheetId) {
   const previews = {
-    'multiplication-2digit': '<div>14 × 23 = ___</div><div>56 × 47 = ___</div><div>38 × 29 = ___</div>',
-    'addition-2digit': '<div>23 + 45 = ___</div><div>67 + 34 = ___</div><div>89 + 12 = ___</div>',
-    'addition-single': '<div>2+3=</div><div>5+4=</div><div>7+1=</div><div>8+2=</div>',
-    'linear-equations': '<div>2x + 3x = 15</div><div>5x - 2x = 21</div><div>4x + 7 = 31</div>',
-    'pythagorean-theorem': '<div>a² + b² = c²</div><div>Find c: a=3, b=4</div><div>Find c: a=5, b=12</div>',
-    'basic-trig-ratios': '<div>sin(30°) = ?</div><div>cos(45°) = ?</div><div>tan(60°) = ?</div>',
-    'mean-median-mode': '<div>Data: 2, 4, 6, 8, 10</div><div>Find: Mean = ?</div><div>Median = ?</div>',
-    'derivatives-basic': '<div>d/dx(x³) = ?</div><div>d/dx(5x²) = ?</div><div>d/dx(2x + 3) = ?</div>'
+    // Math worksheets
+    'multiplication-2digit': '<div>14 × 23 = ___</div><div>56 × 47 = ___</div><div>38 × 29 = ___</div><div>67 × 54 = ___</div><div>45 × 36 = ___</div><div>82 × 19 = ___</div>',
+    
+    'addition-2digit': '<div>23 + 45 = ___</div><div>67 + 34 = ___</div><div>89 + 12 = ___</div><div>56 + 78 = ___</div><div>34 + 29 = ___</div><div>45 + 67 = ___</div>',
+    
+    'addition-single': '<div class="grid grid-cols-4 gap-1"><div>2+3=</div><div>5+4=</div><div>7+1=</div><div>8+2=</div><div>3+6=</div><div>9+1=</div><div>4+5=</div><div>6+3=</div><div>1+8=</div><div>7+2=</div><div>5+5=</div><div>9+0=</div></div>',
+    
+    'addition-3digit': '<div>234 + 567 = ___</div><div>456 + 789 = ___</div><div>123 + 456 = ___</div><div>678 + 234 = ___</div><div>345 + 678 = ___</div><div>789 + 123 = ___</div>',
+    
+    'multiplication-facts': '<div class="grid grid-cols-3 gap-1"><div>7×8=</div><div>9×6=</div><div>4×7=</div><div>8×5=</div><div>6×9=</div><div>5×7=</div><div>9×4=</div><div>8×6=</div><div>7×5=</div></div>',
+    
+    'division-basic': '<div>56 ÷ 8 = ___</div><div>45 ÷ 9 = ___</div><div>36 ÷ 6 = ___</div><div>72 ÷ 8 = ___</div><div>48 ÷ 6 = ___</div><div>63 ÷ 7 = ___</div>',
+    
+    'fractions-basic': '<div>1/2 + 1/4 = ___</div><div>3/4 - 1/2 = ___</div><div>2/3 + 1/6 = ___</div><div>5/6 - 1/3 = ___</div><div>1/4 + 1/8 = ___</div><div>7/8 - 1/4 = ___</div>',
+    
+    'decimals-basic': '<div>12.5 + 8.3 = ___</div><div>15.7 - 9.2 = ___</div><div>23.4 + 11.8 = ___</div><div>28.6 - 14.9 = ___</div><div>16.2 + 7.8 = ___</div><div>31.5 - 18.7 = ___</div>',
+    
+    // Algebra worksheets
+    'linear-equations': '<div>2x + 3 = 15</div><div>5x - 7 = 21</div><div>3x + 8 = 31</div><div>4x - 9 = 23</div><div>6x + 5 = 41</div><div>7x - 12 = 35</div>',
+    
+    'translating-phrases': '<div>• Five more than a number</div><div>• Twice a number</div><div>• A number divided by 4</div><div>• Three less than a number</div><div>• Six times a number plus 2</div><div>• Half of a number</div>',
+    
+    'distributive-property': '<div>3(x + 4) = ___</div><div>5(2x - 3) = ___</div><div>2(x + 7) = ___</div><div>4(3x - 5) = ___</div><div>6(x + 2) = ___</div><div>7(2x - 1) = ___</div>',
+    
+    'combining-like-terms': '<div>3x + 5x = ___</div><div>7x - 2x + 4 = ___</div><div>2x + 3x + 1 = ___</div><div>8x - 3x + 7 = ___</div><div>4x + 6x - 2 = ___</div><div>9x - 4x + 5 = ___</div>',
+    
+    'quadratic-equations': '<div>x² + 5x + 6 = 0</div><div>x² - 3x - 4 = 0</div><div>x² + 2x - 8 = 0</div><div>x² - 7x + 12 = 0</div><div>x² + 4x - 5 = 0</div><div>x² - 6x + 9 = 0</div>',
+    
+    'systems-equations': '<div>2x + y = 8</div><div>x - y = 1</div><div style="margin-top:8px;">3x + 2y = 12</div><div>x + y = 4</div><div style="margin-top:8px;">4x - y = 7</div><div>2x + 3y = 13</div>',
+    
+    // Geometry worksheets
+    'pythagorean-theorem': '<div>a² + b² = c²</div><div>Find c: a=3, b=4</div><div>Find c: a=5, b=12</div><div>Find c: a=8, b=15</div><div>Find c: a=7, b=24</div><div>Find c: a=9, b=12</div>',
+    
+    'area-perimeter': '<div>Rectangle: l=8cm, w=5cm</div><div>Area = ___ cm²</div><div>Square: side=6cm</div><div>Perimeter = ___ cm</div><div>Triangle: base=10cm, h=7cm</div><div>Area = ___ cm²</div>',
+    
+    'coordinate-geometry': '<div>Distance formula:</div><div>A(2,3) to B(5,7)</div><div>d = ___</div><div>C(-1,4) to D(3,1)</div><div>d = ___</div><div>E(0,0) to F(6,8)</div>',
+    
+    'angles-triangles': '<div>∠A = 60°, ∠B = 50°</div><div>Find ∠C = ___°</div><div>∠X = 75°, ∠Y = 45°</div><div>Find ∠Z = ___°</div><div>∠P = 90°, ∠Q = 35°</div><div>Find ∠R = ___°</div>',
+    
+    'circle-geometry': '<div>Circle: r = 5cm</div><div>Area = πr² = ___</div><div>Circumference = 2πr = ___</div><div>Circle: r = 8cm</div><div>Area = ___ cm²</div><div>Circumference = ___ cm</div>',
+    
+    // Trigonometry worksheets
+    'basic-trig-ratios': '<div>sin(30°) = ___</div><div>cos(45°) = ___</div><div>tan(60°) = ___</div><div>sin(90°) = ___</div><div>cos(60°) = ___</div><div>tan(45°) = ___</div>',
+    
+    'trig-identities': '<div>sin²θ + cos²θ = ___</div><div>tan θ = sin θ / ___</div><div>sin(90° - θ) = ___</div><div>cos(90° - θ) = ___</div><div>1 + tan²θ = ___</div><div>sec²θ - tan²θ = ___</div>',
+    
+    'solving-triangles': '<div>Triangle: a=8, b=6, C=45°</div><div>Find c using cosine rule</div><div>c² = a² + b² - 2ab cos C</div><div>Triangle: a=10, b=12, C=60°</div><div>Find c = ___</div><div>Show your work</div>',
+    
+    'unit-circle': '<div>θ = 90°: (cos θ, sin θ) = ?</div><div>θ = 180°: (cos θ, sin θ) = ?</div><div>θ = 270°: (cos θ, sin θ) = ?</div><div>θ = 45°: (cos θ, sin θ) = ?</div><div>θ = 30°: (cos θ, sin θ) = ?</div>',
+    
+    // Statistics worksheets
+    'mean-median-mode': '<div>Data: 2, 4, 6, 8, 10</div><div>Mean = ___</div><div>Median = ___</div><div>Data: 5, 7, 3, 9, 1, 6</div><div>Mean = ___</div><div>Mode = ___</div>',
+    
+    'probability-basic': '<div>Coin flip: P(Heads) = ___</div><div>Die roll: P(6) = ___</div><div>P(Even number) = ___</div><div>Card draw: P(Red) = ___</div><div>P(Ace) = ___</div><div>P(Face card) = ___</div>',
+    
+    'data-interpretation': '<div>Bar chart shows:</div><div>Math: 25 students</div><div>Science: 30 students</div><div>English: 20 students</div><div>What % chose Math?</div><div>Answer: ___%</div>',
+    
+    'standard-deviation': '<div>Data: 10, 12, 14, 16, 18</div><div>Mean = ___</div><div>Variance = ___</div><div>Standard deviation = ___</div><div>Show calculation steps</div><div>Round to 2 decimal places</div>',
+    
+    // Calculus worksheets
+    'derivatives-basic': '<div>d/dx(x³) = ___</div><div>d/dx(5x²) = ___</div><div>d/dx(2x + 3) = ___</div><div>d/dx(x⁴ - 3x) = ___</div><div>d/dx(6x² + 4x - 1) = ___</div><div>d/dx(x⁵) = ___</div>',
+    
+    'limits': '<div>lim(x→2) (x + 3) = ___</div><div>lim(x→1) (x² - 1) = ___</div><div>lim(x→0) (sin x)/x = ___</div><div>lim(x→∞) 1/x = ___</div><div>lim(x→3) (x² - 9)/(x - 3) = ___</div>',
+    
+    'chain-rule': '<div>d/dx[(3x + 1)²] = ___</div><div>d/dx[sin(2x)] = ___</div><div>d/dx[(x² + 1)³] = ___</div><div>d/dx[cos(3x - 1)] = ___</div><div>d/dx[(5x - 2)⁴] = ___</div>',
+    
+    'integration-basic': '<div>∫ x² dx = ___</div><div>∫ 3x dx = ___</div><div>∫ (x + 1) dx = ___</div><div>∫ 2x³ dx = ___</div><div>∫ (4x² - 2x) dx = ___</div><div>∫ x⁻¹ dx = ___</div>'
   };
   
-  return previews[worksheetId] || '<div>Sample problems...</div><div>Practice exercises...</div><div>Step-by-step solutions...</div>';
+  return previews[worksheetId] || '<div>Math problems...</div><div>Practice exercises...</div><div>Step-by-step solutions...</div>';
 }
 
 // Get grade range for styling
 function getGradeRange(grade) {
-  if (grade.includes('3') || grade.includes('4') || grade.includes('5') || grade.includes('6')) {
+  if (grade.includes('4') || grade.includes('5') || grade.includes('6')) {
     return '4-6';
   }
   if (grade.includes('7') || grade.includes('8') || grade.includes('9')) {
