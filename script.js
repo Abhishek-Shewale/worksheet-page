@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-// 🔑 Replace with your Gemini API key
+// 🔑 Replace with your Gemini API key (note: exposing keys on client is insecure)
 const genAI = new GoogleGenerativeAI("AIzaSyAfzmPZwL-fGE0pOzzUiF0jNlOLsrY4Uus");
 
 // Get class + olympiad from localStorage
@@ -27,20 +27,18 @@ async function downloadCurrentTab() {
   }
 
   // Create a container for the PDF content
-  const pdfContainer = document.createElement('div');
-  pdfContainer.className = 'p-8';
-  
-  // Get the full path to the logo
-  const logoPath = window.location.origin + 
-  window.location.pathname.replace(/\/[^/]*$/, '') + 
-  '/assets/studentailogo.jpg';
+  const pdfContainer = document.createElement("div");
+  pdfContainer.className = "p-8";
 
-  
+  // ✅ Use direct public URL for your logo
+  const logoPath = "https://i.ibb.co/kg9r9Y4r/studentailogo.jpg";
+
   // Add logo and header
   pdfContainer.innerHTML = `
     <div class="text-center mb-6">
-      <img src="${logoPath}" 
-           alt="Logo" 
+      <img src="${logoPath}"
+           crossorigin="anonymous"
+           alt="Logo"
            class="h-20 mx-auto mb-4"
            onerror="this.style.display='none'">
       <h1 class="text-2xl font-bold">${olympiad} Olympiad - ${formatTabName(currentTab)}</h1>
@@ -53,18 +51,18 @@ async function downloadCurrentTab() {
   // PDF options
   const opt = {
     margin: 10,
-    filename: `${olympiad}_${currentTab.replace(/[- ]/g, '_')}_Class_${classLevel}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
+    filename: `${olympiad}_${currentTab.replace(/[- ]/g, "_")}_Class_${classLevel}.pdf`,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: {
       scale: 2,
-      useCORS: true, // Enable CORS for external images
-      logging: true, // Enable logging for debugging
-      allowTaint: true, // Allow tainted canvas
+      useCORS: true,   // Enable CORS for remote images
+      logging: true,
+      allowTaint: false
     },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
-      orientation: 'portrait' 
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
     }
   };
 
@@ -72,30 +70,31 @@ async function downloadCurrentTab() {
     // Generate and download PDF
     await html2pdf().set(opt).from(pdfContainer).save();
   } catch (error) {
-    console.error('Error generating PDF:', error);
-    alert('Error generating PDF. Please try again.');
+    console.error("Error generating PDF:", error);
+    alert("Error generating PDF. Please try again.");
   }
 }
 
 // Helper function to format tab names for display
 function formatTabName(tab) {
-  return tab.split('-').map(word => 
-    word.charAt(0).toUpperCase() + word.slice(1)
-  ).join(' ');
+  return tab
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 // Add click handler for download button
-downloadBtn.addEventListener('click', downloadCurrentTab);
+downloadBtn.addEventListener("click", downloadCurrentTab);
 
 // Update current tab when a tab is clicked
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
     currentTab = tab.dataset.tab;
   });
 });
 
 // Auto-load the syllabus tab when the page loads
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const syllabusTab = document.querySelector('.tab-btn[data-tab="syllabus"]');
   if (syllabusTab) {
     syllabusTab.click();
