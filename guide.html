@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olympiad Guide</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add html2pdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto p-6">
+    <!-- Header with Logo and Download Button -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center">
+        <h1 id="guide-title" class="text-2xl font-bold text-indigo-700">
+          Olympiad Guide
+        </h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <img src="https://i.ibb.co/kg9r9Y4r/studentailogo.jpg" alt="Logo" class="h-12 mr-4">
+
+      <button id="downloadCurrentTab" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+        <i class="fas fa-download mr-2"></i> Download
+      </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="mb-4 border-b border-gray-200">
+      <nav class="flex space-x-4" id="tabs">
+        <button class="tab-btn flex items-center" data-tab="syllabus">
+          <i class="fas fa-book-open mr-2"></i> Syllabus
+          
+        </button>
+        <button class="tab-btn flex items-center" data-tab="exam-pattern">
+          <i class="fas fa-clipboard-list mr-2"></i> Exam Pattern
+          
+        </button>
+        <button class="tab-btn flex items-center" data-tab="question-bank">
+          <i class="fas fa-question-circle mr-2"></i> Question Bank
+         
+        </button>
+        <button class="tab-btn flex items-center" data-tab="preparation-tips">
+          <i class="fas fa-lightbulb mr-2"></i> Preparation Tips
+         
+        </button>
+      </nav>
+    </div>
+
+    <!-- Content Area -->
+    <div id="tab-content" class="bg-white p-6 rounded-lg shadow">
+      <p>Select a tab to view content...</p>
+    </div>
+  </div>
+
+  <!-- Main Script -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
