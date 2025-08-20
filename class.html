@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Olympiad</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <!-- Header -->
+    <header class="mb-8">
+      <h1 id="page-title" class="text-3xl font-bold text-gray-800">Select Your Olympiad</h1>
+      <p id="page-sub" class="text-gray-600 mt-2"></p>
+    </header>
+
+    <!-- Class Picker (shown only if ?class is missing) -->
+    <section id="class-picker" class="mb-10 hidden">
+      <h2 class="text-2xl font-bold text-black mb-6">Choose your Class</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6">        <!-- Class buttons 4–10 -->
+        <script>
+          // This script block only outputs buttons; logic is at bottom.
+          for (let c = 4; c <= 10; c++) {
+            document.write(`
+              <button
+                class="px-4 py-3 bg-purple-600 text-white rounded-xl shadow hover:bg-purple-700 font-semibold transition-colors"
+                onclick="selectClass(${c})"
+                aria-label="Select Class ${c}">
+                Class ${c}
+              </button>
+            `);
+          }
+        </script>
+      </div>
+    </section>
+
+    <!-- Olympiad Cards (shown only if ?class is present) -->
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+  <!-- NSO -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      NSO - SCIENCE OLYMPIAD
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/Nnm9cm9J/science.png" alt="NSO" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">NSO Olympiad</h3>
+        <p class="text-sm mt-2">
+          National Science Olympiad prep guide with syllabus, exam pattern, and tips.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('NSO')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NCO -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      NCO - CYBER OLYMPIAD
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/6LQbsbT/cyber.png" alt="NCO" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">NCO Olympiad</h3>
+        <p class="text-sm mt-2">
+          National Cyber Olympiad preparation with syllabus, and practice tests.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('NCO')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IGKO -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      IGKO - GENERAL KNOWLEDGE
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/6RSxkJRP/english.pnghttps://i.ibb.co/WSTvs9H/gk.png" alt="IGKO" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">IGKO Olympiad</h3>
+        <p class="text-sm mt-2">
+          International General Knowledge Olympiad resources and study material.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('IGKO')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reasoning -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      REASONING OLYMPIAD
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/NdLNKPsQ/reasoning.png" alt="Reasoning" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">Reasoning Olympiad</h3>
+        <p class="text-sm mt-2">
+          Logical reasoning and mental ability test preparation with practice questions.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('Reasoning')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMO -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      IMO - MATHS OLYMPIAD
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/QjCZqhjQ/math.png" alt="IMO" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">IMO Olympiad</h3>
+        <p class="text-sm mt-2">
+          International Mathematics Olympiad preparation with problems and solutions.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('IMO')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IEO -->
+  <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col h-[380px]">
+    <div class="bg-blue-600 text-white text-center py-2 font-bold">
+      IEO - ENGLISH OLYMPIAD
+    </div>
+    <div class="flex-1 flex flex-col">
+      <div class="flex-1 p-4 flex items-center justify-center">
+        <img src="https://i.ibb.co/6RSxkJRP/english.png" alt="IEO" class="max-h-48 object-contain">
+      </div>
+      <div class="p-4 text-center">
+        <h3 class="font-bold">IEO Olympiad</h3>
+        <p class="text-sm mt-2">
+          International English Olympiad preparation with practice tests and vocabulary.
+        </p>
+        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="selectOlympiad('IEO')">
+          PREP GUIDE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <script>
+    // --- Read class from query param ---
+    const params = new URLSearchParams(window.location.search);
+    const classLevel = params.get('class');
+
+    const titleEl = document.getElementById('page-title');
+    const subEl = document.getElementById('page-sub');
+    const classPicker = document.getElementById('class-picker');
+    const olympiadSection = document.getElementById('olympiad-section');
+
+    if (!classLevel) {
+      // No class in URL → ask user to pick class first
+      titleEl.textContent = 'Choose Your Class';
+      subEl.textContent = 'Pick your class to continue to Olympiad selection.';
+      classPicker.classList.remove('hidden');
+    } else {
+      // We have a class → show Olympiad choices
+      titleEl.textContent = `Select Your Olympiad — Class ${classLevel}`;
+      subEl.textContent = 'Pick an Olympiad to generate a personalized guide.';
+      olympiadSection.classList.remove('hidden');
+    }
+
+    // When class is chosen from the picker (only used if URL had no class)
+    function selectClass(c) {
+      // Persist to localStorage for guide.html convenience
+      localStorage.setItem('selectedClass', String(c));
+      // Also move to this same page with class param so back/refresh works cleanly
+      window.location.href = `class.html?class=${encodeURIComponent(c)}`;
+    }
+
+    // When an Olympiad card is chosen
+    function selectOlympiad(olymp) {
+      const chosenClass = classLevel || localStorage.getItem('selectedClass');
+      if (!chosenClass) {
+        alert('Please select a class first.');
+        return;
+      }
+      // Persist choices for guide.html (your guide.js reads these)
+      localStorage.setItem('selectedClass', String(chosenClass));
+      localStorage.setItem('selectedOlympiad', olympicLabel(olymp));
+
+      // Redirect to guide.html with query params too (so both methods work)
+      window.location.href = `guide.html?class=${encodeURIComponent(chosenClass)}&olympiad=${encodeURIComponent(olympicLabel(olymp))}`;
+    }
+
+    // Normalize labels (e.g., keep consistent casing)
+    function olympicLabel(code) {
+      const map = { NSO: 'NSO', IMO: 'IMO', IEO: 'IEO', NCO: 'NCO', IGKO: 'IGKO' };
+      return map[code] || code.toUpperCase();
+    }
+
+    // Expose functions for inline onclick
+    window.selectClass = selectClass;
+    window.selectOlympiad = selectOlympiad;
+  </script>
+</body>
+</html>
