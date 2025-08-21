@@ -31,7 +31,7 @@ async function downloadCurrentTab() {
   pdfContainer.className = "p-8";
 
   // ✅ Use direct public URL for your logo
-  const logoPath = "https://i.ibb.co/kg9r9Y4r/studentailogo.jpg";
+  const logoPath = "https://i.ibb.co/nsh5NvBk/Student-AI.png";
 
   // Add logo and header
   pdfContainer.innerHTML = `
@@ -89,7 +89,12 @@ downloadBtn.addEventListener("click", downloadCurrentTab);
 // Update current tab when a tab is clicked
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
+    // Remove active class from all tabs
+    tabs.forEach(t => t.classList.remove('active'));
+    // Add active class to clicked tab
+    tab.classList.add('active');
     currentTab = tab.dataset.tab;
+    loadContent(currentTab);
   });
 });
 
@@ -99,22 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (syllabusTab) {
     syllabusTab.click();
   }
-});
-
-tabs.forEach((tab) => {
-  tab.addEventListener("click", async () => {
-    const selectedTab = tab.dataset.tab;
-
-    // Reset tab styles
-    tabs.forEach((t) => {
-      t.classList.remove("border-indigo-600", "text-indigo-600");
-      t.classList.add("text-gray-600");
-    });
-    tab.classList.add("border-indigo-600", "text-indigo-600");
-
-    // Load content
-    await loadContent(selectedTab);
-  });
 });
 
 async function loadContent(tab, hideLoading = false) {
@@ -137,18 +126,59 @@ async function loadContent(tab, hideLoading = false) {
     // Raw text from Gemini
     const rawText = await result.response.text();
 
-    // Clean unwanted markdown/code fences
-    const cleaned = rawText
+    // Clean and process the HTML
+    let cleaned = rawText
       .replace(/```html/g, "")
       .replace(/```/g, "")
       .replace(/Key improvements[\s\S]*/g, "")
+      .replace(/Explanation and Improvements[\s\S]*/g, "")
       .trim();
 
-    // Render cleaned HTML directly
+    // Process tables to fix structure and remove duplicates
+    cleaned = cleaned
+      // Remove any inline styles or margins
+      .replace(/<table([^>]*)style=["'][^"']*margin[^"']*["']/gi, '<table$1')
+      // Add proper table classes
+      .replace(/<table([^>]*)>/gi, '<table class="w-full border-collapse my-4">')
+      // Process table cells
+      .replace(/<td([^>]*)>/gi, '<td class="p-2 border border-gray-300">')
+      .replace(/<th([^>]*)>/gi, '<th class="p-2 border border-gray-300 bg-gray-100 font-semibold">')
+      // Remove duplicate headers (keep only the first thead if there are multiple)
+      .replace(/<thead[^>]*>.*?<\/thead>\s*(?=<thead)/gis, '');
+
+    console.log("[Gemini raw] ===\n", rawText);
+    console.log("[Gemini cleaned] ===\n", cleaned);
+
+    // Create a container with proper styling
+    const container = document.createElement('div');
+    container.className = 'prose max-w-none overflow-x-auto';
+    container.innerHTML = cleaned;
+
+    // Remove any remaining inline styles and empty elements
+    container.querySelectorAll('*').forEach(el => {
+      el.removeAttribute('style');
+      // Remove empty elements that might be causing spacing issues
+      if (!el.textContent.trim() && el.children.length === 0) {
+        el.remove();
+      }
+    });
+
+    // Remove any duplicate headers in tables
+    container.querySelectorAll('table').forEach(table => {
+      const headers = table.querySelectorAll('thead');
+      // Keep only the first thead if there are multiple
+      for (let i = 1; i < headers.length; i++) {
+        headers[i].remove();
+      }
+    });
+
     if (!hideLoading) {
-      tabContent.innerHTML = `<div class="prose max-w-none">${cleaned}</div>`;
+      tabContent.innerHTML = '';
+      tabContent.appendChild(container);
     }
-    loadedTabs[tab] = `<div class="prose max-w-none">${cleaned}</div>`; // cache it
+    
+    // Cache the HTML as a string
+    loadedTabs[tab] = container.outerHTML;
   } catch (error) {
     console.error(error);
     if (!hideLoading) {
@@ -160,7 +190,36 @@ async function loadContent(tab, hideLoading = false) {
 function generatePrompt(tab) {
   switch (tab) {
     case "syllabus":
-      return `Generate a detailed syllabus outline for the ${olympiad} Olympiad for Class ${classLevel}. give me response in html format`;
+  return `
+Generate a detailed ${olympiad} Olympiad syllabus in HTML format for Class ${classLevel}.
+
+Requirements:
+- Output ONLY valid HTML (no markdown, no code fences, no extra commentary).
+- Wrap everything inside a single root container: <div class="syllabus-container"> ... </div>.
+- Start with an <h2> heading: <h2>${olympiad} Olympiad – Class ${classLevel} Syllabus</h2>.
+- Include an "Overview" section with a short (1-3 sentence) formal educational introduction.
+- Include a "Syllabus Breakdown" section. Present topics and subtopics using a table exactly like this structure:
+
+<table class="syllabus-table">
+  <thead>
+    <tr><th>Topic</th><th>Subtopics</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Main Topic</td><td>Subtopic 1, Subtopic 2, Subtopic 3</td></tr>
+    <tr><td>Main Topic</td><td>Subtopic 1, Subtopic 2</td></tr>
+  </tbody>
+</table>
+
+- Provide 6–8 main topics appropriate for Class ${classLevel} and the ${olympiad} domain. Each topic must have 3–6 concise comma-separated subtopics.
+- Keep topic titles short (5–7 words max). Keep subtopic phrases concise (1–6 words each).
+- Use semantic HTML only (headings, paragraphs, tables, <section> blocks). Do not include scripts, styles, or external links.
+- Use a formal, educational tone.
+- Do not include any text outside the root <div>.
+
+End.
+`.trim();
+
+
 
     case "exam-pattern":
       return `Generate the complete exam pattern and marking scheme for the ${olympiad} Olympiad for Class ${classLevel}. 
@@ -169,7 +228,12 @@ function generatePrompt(tab) {
 
     case "question-bank":
       return `Generate a question bank of 20 practice questions with answers for the ${olympiad} Olympiad for Class ${classLevel}. 
-              Present questions in a well-structured HTML format using tables, lists, or cards.`;
+Present questions in a well-structured HTML format using tables, lists, or cards. 
+Make sure:
+- Each question has exactly one number (1, 2, 3, …). 
+- Each option is labeled only once as a), b), c), d) — no duplicates. 
+- Do not repeat numbering or option letters.
+`;
 
     case "preparation-tips":
       return `Generate preparation tips and study strategies for the ${olympiad} Olympiad for Class ${classLevel}. 
