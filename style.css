@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: #f9f9f9;
     margin: 0;
-    padding: 20px;
+    padding: 15px;
   }
   
   .main-title {
@@ -110,4 +110,61 @@ body {
     border-bottom: 3px solid #4f46e5;
     color: #1d4ed8;
   }
-  
+  /* Syllabus improvements */
+.syllabus-wrapper { background: #ffffff; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+
+.syllabus-container { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #111827; line-height: 1.45; }
+.syllabus-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.syllabus-container .subject { margin: 1.25rem 0; }
+
+/* Subject heading */
+.syllabus-container h3 {
+  color: #1d4ed8; /* blue-600 */
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.125rem;
+}
+
+/* Table: fixed layout so columns align, with padding & breaks */
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* important to make columns stable */
+  margin-top: 0.5rem;
+}
+.syllabus-table thead th {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+  vertical-align: bottom;
+}
+.syllabus-table tbody td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+  white-space: normal;
+  word-break: break-word;
+  color: #374151;
+}
+
+/* Column widths: topic narrow, subtopics wide */
+.syllabus-table tbody tr td:first-child { width: 28%; font-weight: 600; color: #111827; padding-right: 1rem; }
+.syllabus-table tbody tr td:last-child  { width: 72%; }
+
+
+
+/* Responsive: stack rows on narrow screens */
+@media (max-width: 768px) {
+  .syllabus-table thead { display: none; }
+  .syllabus-table, .syllabus-table tbody, .syllabus-table tr, .syllabus-table td { display: block; width: 100%; }
+  .syllabus-table tr { margin-bottom: 0.75rem; border-bottom: 1px dashed #e6e6e6; padding-bottom: 0.5rem; }
+  .syllabus-table td { padding: 0.35rem 0; }
+  .syllabus-table td:first-child { font-weight: 700; padding-top: 0.25rem; }
+}
